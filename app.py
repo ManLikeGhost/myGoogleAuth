@@ -1,3 +1,4 @@
+import config
 from flask import Flask, redirect, url_for, session
 from flask_sqlalchemy import SQLAlchemy
 from flask_oauth import OAuth
@@ -5,11 +6,11 @@ from flask_oauth import OAuth
  
 # You must configure these 3 values from Google APIs console
 # https://code.google.com/apis/console
-GOOGLE_CLIENT_ID = '595445376676-2novv7in7s4knmg9243i0h20pq3pqrui.apps.googleusercontent.com'
-GOOGLE_CLIENT_SECRET = 'acbYU4hYQjwslKm5JQDKP3Oz'
+GOOGLE_CLIENT_ID = config.GOOGLE_API_CLIENT_ID
+GOOGLE_CLIENT_SECRET = config.GOOGLE_API_CLIENT_SECRET
 REDIRECT_URI = '/oauth2callback'  # one of the Redirect URIs from Google APIs console
  
-SECRET_KEY = 'development key'
+SECRET_KEY = config.SECRET_API_DEV_KEY
 DEBUG = True
  
 app = Flask(__name__)
@@ -75,16 +76,3 @@ if __name__ == '__main__':
     main()
 
 
-#initialize app
-#app = Flask(__name__)
-
-
-# route path 
-#@app.route('/')
-#def google_Oauth():
-    #return "Hello Flask!!"
-
-
-#To run this api
-#if __name__ == "__main__":
-   # app.run()
